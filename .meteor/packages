@@ -7,3 +7,5 @@
 meteor-platform
 grigio:babel
 semantic:ui-css
+iron:router
+fourseven:scss

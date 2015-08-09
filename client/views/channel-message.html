@@ -1,0 +1,20 @@
+<template name="ChannelMessage">
+  <div class="event">
+    <div class="label">
+      <img src="{{avatarFallback}}">
+    </div>
+    <div class="content">
+      <div class="summary">
+        <a class="user">
+          {{userName}}
+        </a>
+        <div class="date">
+          {{createdAt}}
+        </div>
+      </div>
+      <div>
+        {{body}}
+      </div>
+    </div>
+  </div>
+</template>

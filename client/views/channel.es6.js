@@ -1,11 +1,9 @@
 Template.Channel.helpers({
-  avatarFallback() {
-    let rand = function*() {
-      while(true) {
-        yield Math.random();
-      }
-    };
-
-    return "http://api.adorable.io/avatars/65/" + rand().next().value + ".png";
+  channelName() {
+    try {
+      return "#" + this.messages().fetch()[0].channel_name;
+    } catch(_e) {
+      return "Channel does not exist";
+    }
   }
 });
