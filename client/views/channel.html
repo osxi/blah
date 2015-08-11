@@ -1,9 +1,18 @@
 <template name="Channel">
-  <h3 class="ui header">{{channelName}}</h3>
+  <div class="channel-container">
+    <h3 class="ui header">{{channelName}}</h3>
 
-  <div class="ui feed">
-    {{#each messages}}
+    <div class="ui feed">
+      {{#each messages}}
       {{> ChannelMessage}}
-    {{/each}}
+      {{/each}}
+    </div>
+
+    <div class="ui fluid action input big-input">
+      <form action="#">
+        <input type="text" placeholder="Say Something!">
+      </form>
+      <div class="ui button">Send</div>
+    </div>
   </div>
 </template>

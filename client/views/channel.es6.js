@@ -7,3 +7,21 @@ Template.Channel.helpers({
     }
   }
 });
+
+Template.Channel.onRendered(() => {
+  $('.big-input input').focus();
+});
+
+Template.Channel.events({
+  "submit .big-input"(e) {
+    var input = $(e.target).find('input');
+    var body = input.val();
+    var channelName = Router.current().params.channel_name;
+
+    Meteor.call('newMessage', channelName, body, (err, res) => {
+      if (err) { console.log('something went wrong: ', err) }
+
+      input.val('');
+    });
+  }
+});
