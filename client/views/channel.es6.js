@@ -14,6 +14,8 @@ Template.Channel.onRendered(() => {
 
 Template.Channel.events({
   "submit .big-input"(e) {
+    e.preventDefault();
+
     var input = $(e.target).find('input');
     var body = input.val();
     var channelName = Router.current().params.channel_name;
