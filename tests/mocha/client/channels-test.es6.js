@@ -13,7 +13,7 @@ if (typeof MochaWeb !== 'undefined') {
           });
       });
 
-      it('shows Nothing to See Here by default', () => {
+      it.skip('shows Nothing to See Here by default', () => {
         var defaultText = $("h3:contains('Nothing to See Here')");
         chai.expect(defaultText.length).to.eql(1);
       })
