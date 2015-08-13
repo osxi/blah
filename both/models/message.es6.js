@@ -26,5 +26,8 @@ Messages.hooks = {
 
       return doc;
     }
+  },
+  onSuccess() {
+    $('.new-channel-modal').modal('hide');
   }
 }

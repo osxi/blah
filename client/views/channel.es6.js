@@ -13,6 +13,10 @@ Template.Channel.onRendered(() => {
 });
 
 Template.Channel.events({
+  "click .send"() {
+    $('.big-input').submit();
+  },
+
   "submit .big-input"(e) {
     e.preventDefault();
 
@@ -22,7 +26,6 @@ Template.Channel.events({
 
     Meteor.call('newMessage', channelName, body, (err, res) => {
       if (err) { console.log('something went wrong: ', err) }
-
       input.val('');
     });
   }
