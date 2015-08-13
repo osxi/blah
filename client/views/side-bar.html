@@ -1,21 +1,36 @@
 <template name="SideBar">
-  <div class="ui left fixed menu vertical inverted">
-    <a class="item">
-      <i class="send icon"></i>
-      blah
-    </a>
-    <a class="item">
-      <i class="settings icon"></i>
-      Settings
-    </a>
-    <a class="item">
-      <i class="comment icon"></i>
-      Channels
-    </a>
-    <div class="item channel">
-      <a href="{{pathFor route='channels.show' channel_name='general'}}">
-        #general
+  <div class="side-bar-container">
+    <div class="ui left fixed menu vertical inverted">
+      <a class="item">
+        <i class="send icon"></i>
+        blah
       </a>
+      <a class="item">
+        <i class="settings icon"></i>
+        Settings
+      </a>
+      <a class="item">
+        <i class="comment icon"></i>
+        Channels
+      </a>
+
+      {{#each channels}}
+        <div class="item channel">
+          <a href="{{pathFor route='channels.show' channel_name=this}}">
+            #{{this}}!!!
+          </a>
+        </div>
+      {{/each}}
+
+
+
+      <div class="item">
+        <a href="#" class="new-channel-modal-link">
+          + New Channel
+        </a>
+
+        {{> NewChannelModal}}
+      </div>
     </div>
   </div>
 </template>

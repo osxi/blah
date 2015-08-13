@@ -1,4 +1,9 @@
 Router.route('/', function() {
   this.layout('blah');
-  // TODO: render placeholder or last visited channel
+
+  this.render('NothingToSeeHere');
+}, {
+  waitOn() {
+    return Meteor.subscribe('messages');
+  }
 });
