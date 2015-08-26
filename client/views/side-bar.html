@@ -15,14 +15,12 @@
       </a>
 
       {{#each channels}}
-        <div class="item channel">
-          <a href="{{pathFor route='channels.show' channel_name=this}}">
+        <a href="{{pathFor route='channels.show' channel_name=this}}">
+          <div class="item channel">
             #{{this}}
-          </a>
-        </div>
+          </div>
+        </a>
       {{/each}}
-
-
 
       <div class="item">
         <a href="#" class="new-channel-modal-link">
