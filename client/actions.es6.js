@@ -8,3 +8,10 @@ Actions.createMessage = function createMessage(opts) {
 
   return { type: 'CREATE_MESSAGE' };
 };
+
+Actions.receiveMarkdown = function receiveMarkdown(html) {
+  return {
+    type: 'RECEIVE_MARKDOWN',
+    markdown: html
+  };
+};
