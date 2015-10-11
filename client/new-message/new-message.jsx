@@ -2,9 +2,15 @@ const { TextField } = mui;
 
 NewMessage = React.createClass({
   _submitHandler() {
+    if (!!!this.refs.newMessage.getValue()) {
+      return;
+    }
+
     store.dispatch(Actions.createMessage({
       author: 'Me',
-      body: this.refs.newMessage.getValue()
+      body: marked(this.refs.newMessage.getValue(), {
+        santitize: true
+      })
     }));
 
     this.refs.newMessage.clearValue();

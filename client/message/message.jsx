@@ -3,7 +3,11 @@ Message = React.createClass({
     return (
       <div className="message">
         <p>
-          <strong>{this.props.author}</strong>: {this.props.body}
+          <strong>
+            {this.props.author}
+          </strong>:
+
+          <span dangerouslySetInnerHTML={{__html: this.props.body}} />
         </p>
       </div>
     );
