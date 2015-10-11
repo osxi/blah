@@ -5,7 +5,7 @@ Message = React.createClass({
         <p>
           <strong>
             {this.props.author}
-          </strong>:
+          </strong>:&nbsp;
 
           <span dangerouslySetInnerHTML={{__html: this.props.body}} />
         </p>

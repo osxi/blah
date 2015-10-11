@@ -8,7 +8,7 @@ NewMessage = React.createClass({
 
     store.dispatch(Actions.createMessage({
       author: 'Me',
-      body: marked(this.refs.newMessage.getValue(), {
+      body: marked.inlineLexer(this.refs.newMessage.getValue(), [], {
         santitize: true
       })
     }));
