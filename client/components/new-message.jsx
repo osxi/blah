@@ -16,6 +16,10 @@ NewMessage = React.createClass({
     this.refs.newMessage.clearValue();
   },
 
+  componentDidMount() {
+    this.refs.newMessage.focus();
+  },
+
   render() {
     return (
       <div className="new-message">
