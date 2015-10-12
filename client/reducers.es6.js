@@ -1,6 +1,6 @@
 let { createMessage, receiveMarkdown } = Actions;
 
-var initialState = {};
+var initialState = mori.hashMap();
 
 appReducer = function appReducer(state, action) {
   state = state || initialState;
@@ -9,10 +9,10 @@ appReducer = function appReducer(state, action) {
     case 'CREATE_MESSAGE':
       return state;
     case 'RECEIVE_MARKDOWN':
-      return {
-        ...state,
-        markdown: action.markdown
-      };
+      return mori.merge(
+        state,
+        mori.hashMap('markdown', action.markdown)
+      );
     default:
       return state;
   }

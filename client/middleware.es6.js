@@ -1,7 +1,7 @@
 logger = store => next => action => {
   log('\n[Dispatching]', action);
   let result = next(action);
-  log('[Store]', Object.keys(store.getState()));
+  log('[Store]', mori.intoArray(mori.keys(store.getState())));
   return result;
 };
 

@@ -44,7 +44,7 @@ AppDefault = React.createClass({
 
 function mapStateToProps(state) {
   return {
-    markdown: state.markdown
+    markdown: mori.get(state, 'markdown')
   };
 };
 

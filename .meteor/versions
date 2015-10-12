@@ -68,6 +68,7 @@ reload@1.1.4
 retry@1.0.4
 routepolicy@1.0.6
 session@1.1.1
+settinghead:mori@0.3.2
 spacebars@1.0.7
 spacebars-compiler@1.0.7
 standard-minifiers@1.0.1
