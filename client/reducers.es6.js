@@ -1,16 +1,18 @@
 let { createMessage, receiveMarkdown } = Actions;
 
-var reactiveState = new ReactiveDict('redux-state');
+var initialState = {};
 
 appReducer = function appReducer(state, action) {
-  state = state || reactiveState;
+  state = state || initialState;
 
   switch (action.type) {
     case 'CREATE_MESSAGE':
       return state;
     case 'RECEIVE_MARKDOWN':
-      state.set('markdown', action.markdown);
-      return state;
+      return {
+        ...state,
+        markdown: action.markdown
+      };
     default:
       return state;
   }

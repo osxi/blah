@@ -1,5 +1,6 @@
 {
   "redux": "3.0.2",
+  "react-redux": "3.1.0",
   "react-router": "0.13.3",
   "externalify": "0.1.0"
 }

@@ -3,6 +3,14 @@ AppDefault = React.createClass({
     padding: '10px'
   },
 
+  propTypes: {
+    markdown: React.PropTypes.string,
+  },
+
+  componentWillMount() {
+    store.dispatch(Actions.receiveMarkdown('Loading...'));
+  },
+
   componentDidMount() {
     let url = 'https://raw.githubusercontent.com/osxi/blah/master/README.md';
 
@@ -18,7 +26,7 @@ AppDefault = React.createClass({
   },
 
   markdown() {
-    let markdown = store.getReactiveState('markdown');
+    let markdown = this.props.markdown;
 
     return (
       <span dangerouslySetInnerHTML={{__html: markdown}} />
@@ -27,9 +35,17 @@ AppDefault = React.createClass({
 
   render() {
     return (
-      <div className="app-loading" style={this.styles}>
+      <div className="app-default" style={this.styles}>
         {this.markdown()}
       </div>
     );
   }
 });
+
+function mapStateToProps(state) {
+  return {
+    markdown: state.markdown
+  };
+};
+
+AppDefault = connect(mapStateToProps)(AppDefault);

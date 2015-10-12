@@ -20,6 +20,11 @@ const router = ReactRouter.create({
 
 Meteor.startup(function () {
   router.run(function (Handler, state) {
-    React.render(<Handler/>, document.getElementById("app-container"));
+    React.render(
+      <Provider store={store}>
+        {() => <Handler routerState={state} />}
+      </Provider>,
+      document.getElementById("app-container")
+    );
   });
 });
