@@ -8,7 +8,9 @@ const {
   Styles
 } = mui;
 
-const { ThemeManager } = Styles;
+const AppTheme = new Styles.ThemeManager();
+
+AppTheme.setTheme(AppTheme.types.DARK);
 
 const {
   RouteHandler
@@ -42,9 +44,19 @@ App = React.createClass({
     router: React.PropTypes.func
   },
 
+  styles: {
+    appBar: {
+      backgroundColor: '#1E1E1E'
+    },
+
+    appCard: {
+      color: '#fff'
+    }
+  },
+
   getChildContext() {
     return {
-      muiTheme: ThemeManager().getCurrentTheme()
+      muiTheme: AppTheme.getCurrentTheme()
     };
   },
 
@@ -61,9 +73,9 @@ App = React.createClass({
       <div className="app">
         <LeftNav ref="leftNav" docked={false} menuItems={menuItems} onChange={this._onLeftNavChange} />
 
-        <AppBar title="Blah" onLeftIconButtonTouchTap={this._toggleNav} />
+        <AppBar title="Blah" onLeftIconButtonTouchTap={this._toggleNav} style={this.styles.appBar} />
 
-        <Card>
+        <Card style={this.styles.appCard}>
           <RouteHandler />
         </Card>
       </div>
