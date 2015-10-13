@@ -8,6 +8,7 @@ const routes = (
   <Route name="root" path="/" handler={App}>
     <Route name="channels" path="channels/:channelName" handler={Channels} />
     <Route name="settings" path="settings" handler={Settings} />
+    <Route name="login" path="login" handler={Login} />
     <DefaultRoute handler={AppDefault} />
     <NotFoundRoute handler={AppNotFound} />
   </Route>

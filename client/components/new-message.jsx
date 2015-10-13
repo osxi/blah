@@ -7,7 +7,7 @@ NewMessage = React.createClass({
     }
 
     store.dispatch(Actions.createMessage({
-      author: 'Me',
+      author: Meteor.user().profile.name,
       body: marked.inlineLexer(this.refs.newMessage.getValue(), [], {
         santitize: true
       })

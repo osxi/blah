@@ -30,3 +30,6 @@ reactive-dict
 chuangbo:marked
 http
 settinghead:mori
+accounts-github
+service-configuration
+poetic:env-load

@@ -3,8 +3,10 @@ injectTapEventPlugin();
 const {
   AppBar,
   Card,
+  FlatButton,
   LeftNav,
   MenuItem,
+  Snackbar,
   Styles
 } = mui;
 
@@ -60,6 +62,38 @@ App = React.createClass({
     };
   },
 
+  componentWillMount() {
+    this._authenticate();
+  },
+
+  componentWillUpdate() {
+    this._authenticate();
+  },
+
+  _authenticate() {
+    if (!!!Meteor.user()){
+      this.context.router.transitionTo('login');
+    }
+  },
+
+  _logoutButton() {
+    if (!!Meteor.user()) {
+      return (<FlatButton label="Logout" onClick={this._logoutHandler} />);
+    } else {
+      return;
+    }
+  },
+
+  _logoutHandler() {
+    Meteor.logout(err => {
+      if (!!err) { throw err; }
+
+      this.refs.logoutSnackbar.show();
+
+      this._authenticate();
+    });
+  },
+
   _onLeftNavChange(_e, _key, payload) {
     this.context.router.transitionTo(payload.route, payload.params);
   },
@@ -71,9 +105,15 @@ App = React.createClass({
   render() {
     return (
       <div className="app">
-        <LeftNav ref="leftNav" docked={false} menuItems={menuItems} onChange={this._onLeftNavChange} />
+        <LeftNav ref="leftNav" docked={false} menuItems={menuItems}
+                 onChange={this._onLeftNavChange} />
 
-        <AppBar title="Blah" onLeftIconButtonTouchTap={this._toggleNav} style={this.styles.appBar} />
+        <Snackbar message="Successfully logged out!" ref="logoutSnackbar"
+                  autoHideDuration={3000} />
+
+        <AppBar title="Blah" onLeftIconButtonTouchTap={this._toggleNav}
+                style={this.styles.appBar} showMenuIconButton={!!Meteor.user()}
+                iconElementRight={this._logoutButton()} />
 
         <Card style={this.styles.appCard}>
           <RouteHandler />

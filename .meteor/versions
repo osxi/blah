@@ -1,3 +1,6 @@
+accounts-base@1.2.1
+accounts-github@1.0.6
+accounts-oauth@1.1.7
 autopublish@1.0.4
 autoupdate@1.2.3
 babel-compiler@5.8.24_1
@@ -18,6 +21,7 @@ cosmos:browserify@0.5.0
 ddp@1.2.2
 ddp-client@1.2.1
 ddp-common@1.2.1
+ddp-rate-limiter@1.0.0
 ddp-server@1.2.1
 deps@1.0.9
 diff-sequence@1.0.1
@@ -28,6 +32,7 @@ es5-shim@4.1.13
 fabienhuet:radium@1.0.4
 fastclick@1.0.7
 geojson-utils@1.0.4
+github@1.1.4
 hot-code-push@1.0.0
 html-tools@1.0.5
 htmljs@1.0.5
@@ -38,6 +43,7 @@ jquery@1.11.4
 jsx@0.2.1
 launch-screen@1.0.4
 livedata@1.0.15
+localstorage@1.0.5
 logging@1.0.8
 meteor@1.1.9
 meteor-base@1.0.1
@@ -51,11 +57,15 @@ mongo@1.1.2
 mongo-id@1.0.1
 npm-container@1.2.0
 npm-mongo@1.4.39_1
+oauth@1.1.6
+oauth2@1.1.5
 observe-sequence@1.0.7
 ordered-dict@1.0.4
+poetic:env-load@0.0.1
 poetic:react-material-ui@0.0.3
 promise@0.5.0
 random@1.0.4
+rate-limit@1.0.0
 react@0.1.13
 react-meteor-data@0.1.9
 react-runtime@0.13.3_7
@@ -67,6 +77,7 @@ reactive-var@1.0.6
 reload@1.1.4
 retry@1.0.4
 routepolicy@1.0.6
+service-configuration@1.0.5
 session@1.1.1
 settinghead:mori@0.3.2
 spacebars@1.0.7
