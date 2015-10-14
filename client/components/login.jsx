@@ -5,7 +5,7 @@ Login = React.createClass({
 
   render() {
     return (
-      <div className="login" style={this.styles}>
+      <div style={this.styles}>
         <h1>Login via...</h1>
 
         <LoginButtons />

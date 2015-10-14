@@ -1,3 +1,5 @@
+const { findDOMNode } = React;
+
 Channels = React.createClass({
   mixins: [ReactMeteorData],
 
@@ -20,7 +22,11 @@ Channels = React.createClass({
   },
 
   _scrollToBottom() {
-    $('.messages').animate({scrollTop: $(document).height()}, 200);
+    let messages = findDOMNode(this.refs.messages);
+
+    $(messages).animate({
+      scrollTop: $(messages).height()
+    }, 200);
   },
 
   styles: {
@@ -35,21 +41,25 @@ Channels = React.createClass({
     }
   },
 
+  _channelName() {
+    return this.context.router.getCurrentParams().channelName;
+  },
+
   _mapMessages(message) {
     return (<Message key={message._id} author={message.author}
-      body={message.body} />);
+                     body={message.body} />);
   },
 
   render() {
-    var params = this.context.router.getCurrentParams();
-
-    var messages = this.data.messages.map(this._mapMessages);
+    let { styles }  = this;
+    let messages    = this.data.messages.map(this._mapMessages);
+    let channelName = this._channelName();
 
     return (
-      <div className="channels" style={this.styles.channels}>
-        <h3>#{params.channelName}</h3>
+      <div style={styles.channels}>
+        <h3>#{channelName}</h3>
 
-        <div className="messages" style={this.styles.messages}>
+        <div ref="messages" style={styles.messages}>
           {messages}
         </div>
 

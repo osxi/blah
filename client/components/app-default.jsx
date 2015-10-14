@@ -26,7 +26,7 @@ AppDefault = React.createClass({
   },
 
   markdown() {
-    let markdown = this.props.markdown;
+    let { markdown } = this.props;
 
     return (
       <span dangerouslySetInnerHTML={{__html: markdown}} />
@@ -35,7 +35,7 @@ AppDefault = React.createClass({
 
   render() {
     return (
-      <div className="app-default" style={this.styles}>
+      <div style={this.styles}>
         {this.markdown()}
       </div>
     );

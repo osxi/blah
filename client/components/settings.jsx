@@ -1,13 +1,11 @@
 Settings = React.createClass({
-  styles() {
-    return {
-      padding: '10px'
-    };
+  styles: {
+    padding: '10px'
   },
 
   render() {
     return (
-      <div className="settings" style={this.styles()}>
+      <div style={this.styles}>
         settings page stuff goes here.
       </div>
     );

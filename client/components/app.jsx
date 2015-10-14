@@ -71,17 +71,19 @@ App = React.createClass({
   },
 
   _authenticate() {
+    let { router } = this.context;
+
     if (!!!Meteor.user()){
-      this.context.router.transitionTo('login');
+      router.transitionTo('login');
     }
   },
 
   _logoutButton() {
     if (!!Meteor.user()) {
       return (<FlatButton label="Logout" onClick={this._logoutHandler} />);
-    } else {
-      return;
     }
+
+    return;
   },
 
   _logoutHandler() {
@@ -104,7 +106,7 @@ App = React.createClass({
 
   render() {
     return (
-      <div className="app">
+      <div>
         <LeftNav ref="leftNav" docked={false} menuItems={menuItems}
                  onChange={this._onLeftNavChange} />
 

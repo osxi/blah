@@ -1,15 +1,15 @@
 Message = React.createClass({
   render() {
-    return (
-      <div className="message">
-        <p>
-          <strong>
-            {this.props.author}
-          </strong>:&nbsp;
+    let { author, body } = this.props;
 
-          <span dangerouslySetInnerHTML={{__html: this.props.body}} />
-        </p>
-      </div>
+    return (
+      <p>
+        <strong>
+          {author}
+        </strong>:&nbsp;
+
+        <span dangerouslySetInnerHTML={{__html: body}} />
+      </p>
     );
   }
 });

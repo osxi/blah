@@ -26,7 +26,7 @@ LoginButtons = React.createClass({
 
   render() {
     return (
-      <div className="login-buttons">
+      <div>
         <RaisedButton linkButton={true} label="Github"
                       onClick={this._loginWithGithub}/>
 

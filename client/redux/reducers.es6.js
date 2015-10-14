@@ -1,10 +1,8 @@
-let { createMessage, receiveMarkdown } = Actions;
+const { createMessage, receiveMarkdown } = Actions;
 
-var initialState = mori.hashMap();
+const initialState = mori.hashMap();
 
-appReducer = function appReducer(state, action) {
-  state = state || initialState;
-
+appReducer = function appReducer(state=initialState, action) {
   switch (action.type) {
     case 'CREATE_MESSAGE':
       return state;
