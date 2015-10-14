@@ -19,8 +19,8 @@ const router = ReactRouter.create({
   location: ReactRouter.HistoryLocation
 });
 
-Meteor.startup(function () {
-  router.run(function (Handler, state) {
+Meteor.startup(function() {
+  router.run(function(Handler, state) {
     React.render(
       <Provider store={store}>
         {() => <Handler routerState={state} />}

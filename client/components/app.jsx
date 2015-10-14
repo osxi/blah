@@ -10,6 +10,8 @@ const {
   Styles
 } = mui;
 
+const { CSSTransitionGroup } = React.addons;
+
 const AppTheme = new Styles.ThemeManager();
 
 AppTheme.setTheme(AppTheme.types.DARK);
@@ -105,6 +107,8 @@ App = React.createClass({
   },
 
   render() {
+    let pathname = this.context.router.getCurrentPathname();
+
     return (
       <div>
         <LeftNav ref="leftNav" docked={false} menuItems={menuItems}
@@ -118,7 +122,9 @@ App = React.createClass({
                 iconElementRight={this._logoutButton()} />
 
         <Card style={this.styles.appCard}>
-          <RouteHandler />
+          <CSSTransitionGroup transitionName="example">
+            {React.cloneElement(<RouteHandler /> || <div />, { key: pathname })}
+          </CSSTransitionGroup>
         </Card>
       </div>
     );
